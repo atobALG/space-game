@@ -153,6 +153,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.AndreTobisch.Space2D
     Standalone: com.AndreTobisch.Space2D
   buildNumber:
     Standalone: 0
