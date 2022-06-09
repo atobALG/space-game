@@ -14,8 +14,10 @@ pool:
 
 steps:
 
-- task: UnityBuildTask@3
-  inputs:
-    buildTarget: 'Win64'
-    outputPath: '$(Build.BinariesDirectory)'
-    outputFileName: 'spacegame'
+- script: echo "Testing"
+
+# - task: UnityBuildTask@3
+#   inputs:
+#     buildTarget: 'Win64'
+#     outputPath: '$(Build.BinariesDirectory)'
+#     outputFileName: 'spacegame'
