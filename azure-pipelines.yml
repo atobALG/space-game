@@ -39,9 +39,10 @@ stages:
 - stage: CD
   displayName: CD Stage
   jobs:
-  - job: deploy
+  - job: deploy   
     pool:
       name: Default
+      environment: Staging
     steps:
       - script:
         
