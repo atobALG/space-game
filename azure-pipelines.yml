@@ -29,11 +29,9 @@ stages:
   - job: build
     pool:
       name: Default
-    steps:
-      - script: |
-            Build
-             - task: UnityBuildTask@3
-              inputs:
+    steps:      
+      - task: UnityBuildTask@3
+        inputs:
               buildTarget: 'Win64'
               outputPath: '$(Build.BinariesDirectory)'
               outputFileName: 'spacegame'
@@ -45,6 +43,5 @@ stages:
     pool:
       name: Default
     steps:
-      - script: |
-            Deploy
+      - script:
         
