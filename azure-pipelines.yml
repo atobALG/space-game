@@ -11,17 +11,16 @@ pool:
   demands: Unity_2020.3.30
 
 
+# steps:
 
-steps:
+# #- script: echo "Testing"
 
-#- script: echo "Testing"
+#  - task: UnityBuildTask@3
+#    inputs:
+#      buildTarget: 'Win64'
+#      outputPath: '$(Build.BinariesDirectory)'
+#      outputFileName: 'spacegame'
 
- - task: UnityBuildTask@3
-   inputs:
-     buildTarget: 'Win64'
-     outputPath: '$(Build.BinariesDirectory)'
-     outputFileName: 'spacegame'
-     additionalCmdArgs: 
 
 stages:
 - stage: CI
@@ -29,10 +28,23 @@ stages:
   jobs:
   - job: build
     pool:
-    name: Default
-    demands: Unity_2020.3.30
-    displayName: Build
+      name: Default
     steps:
-    - script: echo This is a Build job
-      displayName: Build
+      - script: |
+            Build
+             - task: UnityBuildTask@3
+              inputs:
+              buildTarget: 'Win64'
+              outputPath: '$(Build.BinariesDirectory)'
+              outputFileName: 'spacegame'
 
+- stage: CD
+  displayName: CD Stage
+  jobs:
+  - job: deploy
+    pool:
+      name: Default
+    steps:
+      - script: |
+            Deploy
+        
