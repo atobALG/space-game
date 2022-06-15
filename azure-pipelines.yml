@@ -21,3 +21,15 @@ steps:
      buildTarget: 'Win64'
      outputPath: '$(Build.BinariesDirectory)'
      outputFileName: 'spacegame'
+     additionalCmdArgs: 
+
+stages:
+- stage: CI
+  displayName: CI Stage
+  jobs:
+  - job: build
+    displayName: Build
+    steps:
+    - script: echo This is a Build job
+      displayName: Build
+
