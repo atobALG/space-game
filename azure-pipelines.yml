@@ -30,4 +30,4 @@ stages:
       runOnce:
         deploy:
           steps:
-          - script: deployed
+          - script: echo Deployed
