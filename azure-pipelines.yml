@@ -25,9 +25,9 @@ stages:
   displayName: CD Stage
   jobs:
   - deployment: deploy   
-    pool:
-      name: Default
-      environment: Staging
-      steps:
-      - script:
-        
+    environment: Staging 
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: deployed
