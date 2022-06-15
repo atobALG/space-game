@@ -28,6 +28,9 @@ stages:
   displayName: CI Stage
   jobs:
   - job: build
+    pool:
+    name: Default
+    demands: Unity_2020.3.30
     displayName: Build
     steps:
     - script: echo This is a Build job
