@@ -7,10 +7,7 @@ pool:
   demands: Unity_2020.3.30
 
 
-stages:
-- stage: CI
-  displayName: CI Stage
-  jobs:
+jobs:
   - job: build
     pool:
       name: Default
@@ -20,14 +17,3 @@ stages:
               buildTarget: 'Win64'
               outputPath: '$(Build.BinariesDirectory)'
               outputFileName: 'spacegame'
-
-- stage: CD
-  displayName: CD Stage
-  jobs:
-  - deployment: deploy   
-    environment: Staging 
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - script: echo Deployed
