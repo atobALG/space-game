@@ -7,13 +7,11 @@ pool:
   demands: Unity_2020.3.30
 
 
-jobs:
-  - job: build
-    pool:
-      name: Default
-    steps:      
-      - task: UnityBuildTask@3
-        inputs:
-              buildTarget: 'Win64'
-              outputPath: '$(Build.BinariesDirectory)'
-              outputFileName: 'spacegame'
+steps:
+- task: UnityTestTask@1
+  name: unitytest
+  inputs:
+    testMode: editMode
+
+- script: |
+    echo $(unitytest.testResultsOutputPathAndFileName)
